@@ -1,5 +1,7 @@
 # System name - SmartPath
 
+![SmartPath Logo](./images/logo.png)
+
 Members - Alexander Brenes, Franco Rojas, Jeremmy Aguilar and Randy Baeza Ramírez
 
 
@@ -20,4 +22,26 @@ SmartPath is an innovative AI-driven assistant that revolutionizes employee trai
 
 ## Frontend design specifications
 
-### Authentication platform - Va a ser Cognito
+### Authentication platform - Amazon Cognito
+
+We chose **Amazon Cognito** as our authentication platform because it seamlessly integrates with our existing AWS infrastructure while meeting all our requirements. Amazon Cognito is compatible with our frontend in React and ensures quick implementation, including pre-built and customizable login screens. The platform fully covers our needs: email/password authentication, API access for backend integration, multi-factor authentication (MFA), and a sandbox environment for testing.
+
+We've implemented the following login screens using Amazon Cognito to demonstrate the potential UI for our final application.
+
+**Login screen to enter username**
+![Login](./images/login.png)
+
+**Login screen to enter password**
+![Login - password](./images/loginPassword.png)
+
+**Sign up screen**
+![SignUp](./images/SignUp.png)
+
+**MFA screen**
+![MFA](./images/mfa.png)
+
+<br>
+
+The login screens were fully customized via AWS Console, using Cognito's built-in UI customization options like those shown in the following image.
+
+![Customization Cognito](./images/customizationCognito.png)
