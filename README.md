@@ -1,6 +1,6 @@
 # System name - SmartPath
 
-![SmartPath Logo](./images/logo.png)
+![SmartPath Logo](./Images/logo.png)
 
 Members - Alexander Brenes, Franco Rojas, Jeremmy Aguilar and Randy Baeza Ramírez
 
@@ -29,19 +29,19 @@ We chose **Amazon Cognito** as our authentication platform because it seamlessly
 We've implemented the following login screens using Amazon Cognito to demonstrate the potential UI for our final application.
 
 **Login screen to enter username**
-![Login](./images/login.png)
+![Login](./Images/login.png)
 
 **Login screen to enter password**
-![Login - password](./images/loginPassword.png)
+![Login - password](./Images/loginPassword.png)
 
 **Sign up screen**
-![SignUp](./images/SignUp.png)
+![SignUp](./Images/SignUp.png)
 
 **MFA screen**
-![MFA](./images/mfa.png)
+![MFA](./Images/mfa.png)
 
 <br>
 
 The login screens were fully customized via AWS Console, using Cognito's built-in UI customization options like those shown in the following image.
 
-![Customization Cognito](./images/customizationCognito.png)
+![Customization Cognito](./Images/customizationCognito.png)
