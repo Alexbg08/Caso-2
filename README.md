@@ -45,3 +45,40 @@ We've implemented the following login screens using Amazon Cognito to demonstrat
 The login screens were fully customized via AWS Console, using Cognito's built-in UI customization options like those shown in the following image.
 
 ![Customization Cognito](./Images/customizationCognito.png)
+
+## Backend Architecture
+
+**API Type:** REST API  
+**Architecture:** N-layer + Serverless  
+**Deployment:** Serverless Framework on AWS  
+**Type:** Fully Serverless  
+**Microservices:** No (Monolithic for now, scalable to microservices in the future)  
+**Communication:** HTTPS through AWS API Gateway  
+**Authentication:** Amazon Cognito (token validation in Gateway and Middleware)  
+
+**Architectural Decisions:**
+- Backend is deployed as multiple AWS Lambda functions.
+- API Gateway manages the routing and throttling of incoming requests.
+- Each Lambda is separated by concern: authentication, task recording, etc.
+- Middlewares handle authentication and error processing before hitting handlers.
+- Logger strategy implemented to allow switching between CloudWatch or future 3rd party logging services.
+- Service Layer introduced to separate business logic from data access.
+- Repository Pattern used to abstract DynamoDB interactions.
+
+## Data Layer Design
+
+**Database:** AWS DynamoDB
+
+**Design Strategies:**
+- **Repository Pattern:** All database operations are abstracted behind a repository interface, preventing direct access from handlers or services.
+- **Singleton Connection:** Ensures only one database connection manager is used across the service.
+- **Table Design:** Optimized for access patterns - partition key based on task/user IDs.
+- **TTL (Time to Live):** Implemented for automatic deletion of old tasks to manage storage cost.
+- **Data Encryption:** DynamoDB encryption at rest enabled.
+- **Access Policies:** IAM policies restrict access to specific database actions per Lambda role.
+
+**Expected Benefits:**
+- Highly scalable database with low latency access.
+- Reduces vendor lock-in by abstracting DB logic.
+- Cost-effective solution with serverless scalability.
+- Future-ready for analytics and batch processing (via DynamoDB Streams).
