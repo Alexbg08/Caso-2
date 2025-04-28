@@ -46,6 +46,38 @@ The login screens were fully customized via AWS Console, using Cognito's built-i
 
 ![Customization Cognito](./Images/customizationCognito.png)
 
+### Client architecture
+
+**N-Layer architecture**
+
+We're going to use the N-LAYER architecture, dividing the project into layers.
+
+📂src/
+├── 📂app/                # Next.js Routes
+├── 📂components/         # Reusable Components
+├── 📂contexts/           # React Contexts
+├── 📂hooks/              # Custom hooks
+├── 📂lib/                # Librerries
+├── 📂models/             # Data Models
+├── 📂services/           # Serrvice Layer - API calls
+├── 📂types/              # TypeScript Types
+└── 📂utils/              # Various utilities
+
+We also use this architecture for its scalability; we want to be prepared for the number of people who download the app. We also use this architecture for security, as we store user information and want to ensure the best security for them.
+For web development, we're going to use CSR because it works with Next.js, the web framework we're going to use. It renders fairly quickly, is optimized for quick app loading, and since there are many pages to be viewed, SEO is used to achieve optimal performance.
+We're going to use APIs to connect to the backend; we think this system is good because it's easy to use.
+And we'll use Tailwind for the UI because it's a fairly easy-to-use framework without writing much CSS.
+
+**Design Patterns**
+
+**Abstract Factory**
+- In order to record the app, this design pattern is workable since it is easy to add other connections without having an existing code.
+- When configuring different types of payments using voice commands, using this pattern is also very useful, as it creates families of related payments that will also have specific data or characteristics.
+
+**Observer**
+- The "Observer" design pattern is optimal for creating app notification logic.
+- Likewise, when the user makes a payment for a service, he must communicate with the service providers and banks.
+
 ## Backend Architecture
 
 **API Type:** REST API  
